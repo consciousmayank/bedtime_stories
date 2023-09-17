@@ -1,3 +1,4 @@
+import 'package:bedtime_stories/app/app.locator.dart';
 import 'package:flutter/material.dart';
 import 'package:bedtime_stories/ui/common/app_colors.dart';
 import 'package:bedtime_stories/ui/common/ui_helpers.dart';
@@ -22,30 +23,42 @@ class NoticeSheet extends StackedView<NoticeSheetModel> {
     Widget? child,
   ) {
     return Container(
+      width: double.infinity,
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
       decoration: const BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(10),
-          topRight: Radius.circular(10),
+          topLeft: Radius.circular(8),
+          topRight: Radius.circular(8),
         ),
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Text(
-            request.title!,
-            style: const TextStyle(fontSize: 25, fontWeight: FontWeight.w900),
-          ),
+          if (request.title != null)
+            Text(
+              request.title!,
+              style: Theme.of(context).textTheme.headlineSmall,
+            ),
           verticalSpaceTiny,
           Text(
             request.description!,
-            style: const TextStyle(fontSize: 14, color: kcMediumGrey),
+            style: const TextStyle(fontSize: 14, color: Colors.black),
             maxLines: 3,
             softWrap: true,
           ),
           verticalSpaceLarge,
+          if (request.mainButtonTitle != null)
+            FilledButton(
+              onPressed: () {
+                locator<NavigationService>().back();
+              },
+              child: Text(
+                request.mainButtonTitle!,
+              ),
+            ),
         ],
       ),
     );

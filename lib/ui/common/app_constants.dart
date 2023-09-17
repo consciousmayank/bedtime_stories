@@ -4,7 +4,15 @@ import 'package:flutter/material.dart';
 const double kdDesktopMaxContentWidth = 1150;
 
 // The max height the homeview will take up
+
 const double kdDesktopMaxContentHeight = 750;
+
+//Hive Class ids
+const int storyResponseTypeId = 1;
+const int storyResponseChoiceTypeId = 2;
+const int storyResponseMessageTypeId = 3;
+const int storyResponseUsageTypeId = 4;
+
 const Color colorBlue = Colors.blue;
 const Color colorGreen = Colors.green;
 const Color colorRed = Colors.red;

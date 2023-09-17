@@ -1,6 +1,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.TTS_SERVICE" />
+        </intent>
+    </queries>  
+
     <application
-        android:label="bedtime_stories"
+        android:label="Dreamy Tales"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

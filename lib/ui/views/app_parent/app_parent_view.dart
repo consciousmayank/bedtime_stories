@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:bedtime_stories/l10n/l10n.dart';
 import 'package:responsive_builder/responsive_builder.dart';

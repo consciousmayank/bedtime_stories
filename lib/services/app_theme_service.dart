@@ -105,7 +105,8 @@ class AppThemeService with ListenableServiceMixin {
 
   Locale getLocaleFromPref() {
     var defaultLocale = locator<AppPreferencesService>().getAppLanguageLocale();
-    locator<AppPreferencesService>().setAppLanguageLocale(locale: defaultLocale);
+    locator<AppPreferencesService>()
+        .setAppLanguageLocale(locale: defaultLocale);
 
     return defaultLocale;
   }

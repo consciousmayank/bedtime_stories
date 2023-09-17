@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:bedtime_stories/ui/common/ui_helpers.dart';
 import 'package:stacked/stacked.dart';
@@ -38,26 +36,26 @@ class ThemeChangeView extends StackedView<ThemeChangeViewModel> {
           style: Theme.of(context).textTheme.bodyMedium,
         ),
         children: [
-          // SwitchListTile.adaptive(
-          //   value: viewModel.darkModeValue,
-          //   onChanged: (value) => viewModel.setDarkModeValue(value: value),
-          //   title: Text(
-          //     'DarkMode',
-          //     style: Theme.of(context).textTheme.bodySmall?.copyWith(
-          //           color: textColor(context),
-          //         ),
-          //   ),
-          // ),
-          // SwitchListTile.adaptive(
-          //   value: viewModel.useMaterial3,
-          //   onChanged: (value) => viewModel.setUseMaterial3(value: value),
-          //   title: Text(
-          //     'Use Material 3 Designs',
-          //     style: Theme.of(context).textTheme.bodySmall?.copyWith(
-          //           color: textColor(context),
-          //         ),
-          //   ),
-          // ),
+          SwitchListTile.adaptive(
+            value: viewModel.darkModeValue,
+            onChanged: (value) => viewModel.setDarkModeValue(value: value),
+            title: Text(
+              'DarkMode',
+              style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                    color: Colors.black,
+                  ),
+            ),
+          ),
+          SwitchListTile.adaptive(
+            value: viewModel.useMaterial3,
+            onChanged: (value) => viewModel.setUseMaterial3(value: value),
+            title: Text(
+              'Use Material 3 Designs',
+              style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                    color: Colors.black,
+                  ),
+            ),
+          ),
           ListTile(
             title: Text(
               'Theme Color',

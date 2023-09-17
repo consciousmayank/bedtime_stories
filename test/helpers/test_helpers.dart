@@ -4,6 +4,9 @@ import 'package:bedtime_stories/app/app.locator.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:bedtime_stories/services/app_preferences_service.dart';
 import 'package:bedtime_stories/services/app_theme_service.dart';
+import 'package:bedtime_stories/services/http_service.dart';
+import 'package:bedtime_stories/services/tts_service.dart';
+import 'package:bedtime_stories/services/user_service.dart';
 // @stacked-import
 
 import 'test_helpers.mocks.dart';
@@ -14,6 +17,9 @@ import 'test_helpers.mocks.dart';
   MockSpec<DialogService>(onMissingStub: OnMissingStub.returnDefault),
   MockSpec<AppPreferencesService>(onMissingStub: OnMissingStub.returnDefault),
   MockSpec<AppThemeService>(onMissingStub: OnMissingStub.returnDefault),
+  MockSpec<HttpService>(onMissingStub: OnMissingStub.returnDefault),
+  MockSpec<TtsService>(onMissingStub: OnMissingStub.returnDefault),
+  MockSpec<UserService>(onMissingStub: OnMissingStub.returnDefault),
 // @stacked-mock-spec
 ])
 void registerServices() {
@@ -22,6 +28,9 @@ void registerServices() {
   getAndRegisterDialogService();
   getAndRegisterAppPreferencesService();
   getAndRegisterAppThemeService();
+  getAndRegisterHttpService();
+  getAndRegisterTtsService();
+  getAndRegisterUserService();
 // @stacked-mock-register
 }
 
@@ -86,6 +95,27 @@ MockAppThemeService getAndRegisterAppThemeService() {
   _removeRegistrationIfExists<AppThemeService>();
   final service = MockAppThemeService();
   locator.registerSingleton<AppThemeService>(service);
+  return service;
+}
+
+MockHttpService getAndRegisterHttpService() {
+  _removeRegistrationIfExists<HttpService>();
+  final service = MockHttpService();
+  locator.registerSingleton<HttpService>(service);
+  return service;
+}
+
+MockTtsService getAndRegisterTtsService() {
+  _removeRegistrationIfExists<TtsService>();
+  final service = MockTtsService();
+  locator.registerSingleton<TtsService>(service);
+  return service;
+}
+
+MockUserService getAndRegisterUserService() {
+  _removeRegistrationIfExists<UserService>();
+  final service = MockUserService();
+  locator.registerSingleton<UserService>(service);
   return service;
 }
 // @stacked-mock-create

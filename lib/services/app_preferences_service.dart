@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:bedtime_stories/classes/story_response.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -9,6 +10,7 @@ import '../l10n/l10n.dart';
 
 const String _preferencesEncryptionKey = 'preferencesEncryptionKey';
 const String _storedAppLocale = 'storedAppLocale';
+const String _storedStory = 'storedStory';
 
 abstract class InterFaceAppPreferences {
   ///Returns the Locale saved in app which user has selected as the app locale.
@@ -20,6 +22,10 @@ abstract class InterFaceAppPreferences {
     required Locale locale,
   });
 
+  ///Stores a story in DB.
+  void saveStory({required StoryResponse story});
+
+  StoryResponse? fetchSavedStory();
 }
 
 class AppPreferencesService
@@ -52,7 +58,10 @@ class AppPreferencesService
     }
 
     //declare hive adapters here
-    
+    Hive.registerAdapter(StoryResponseAdapter());
+    Hive.registerAdapter(ChoiceAdapter());
+    Hive.registerAdapter(MessageAdapter());
+    Hive.registerAdapter(UsageAdapter());
     //declare hive adapters above
 
     await Hive.initFlutter();
@@ -90,5 +99,14 @@ class AppPreferencesService
     await _initPreferences();
     // return Future.value(_instance);
   }
-  
+
+  @override
+  void saveStory({required StoryResponse story}) {
+    appHelperBox.put(_storedStory, story);
+  }
+
+  @override
+  StoryResponse? fetchSavedStory() {
+    return appHelperBox.get(_storedStory);
+  }
 }

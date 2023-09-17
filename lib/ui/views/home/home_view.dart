@@ -11,6 +11,12 @@ class HomeView extends StackedView<HomeViewModel> {
   const HomeView({super.key});
 
   @override
+  void onDispose(HomeViewModel viewModel) {
+    viewModel.ttsService.stop();
+    super.onDispose(viewModel);
+  }
+
+  @override
   Widget builder(
     BuildContext context,
     HomeViewModel viewModel,
@@ -21,6 +27,12 @@ class HomeView extends StackedView<HomeViewModel> {
       tablet: (_) => const HomeViewTablet(),
       desktop: (_) => const HomeViewDesktop(),
     );
+  }
+
+  @override
+  void onViewModelReady(HomeViewModel viewModel) {
+    viewModel.getDefaultStory();
+    super.onViewModelReady(viewModel);
   }
 
   @override
