@@ -1,0 +1,19 @@
+{
+  "languageScreenTitle": "Choose language",
+  "@languageScreenTitle": {
+    "description": "language Screen Title Text"
+  },
+  "languageHindi": "Hindi",
+  "@languageHindi": {
+    "description": "Language Hindi Text"
+  },
+  "languageEnglish": "English",
+  "@languageEnglish": {
+    "description": "Language English Text"
+  },
+  "changeThemeText": "Change Theme",
+  "@changeThemeText": {
+    "description": "Change Theme Text"
+  }
+}
+
