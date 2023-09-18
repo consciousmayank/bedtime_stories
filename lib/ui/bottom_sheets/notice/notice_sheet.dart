@@ -1,6 +1,5 @@
 import 'package:bedtime_stories/app/app.locator.dart';
 import 'package:flutter/material.dart';
-import 'package:bedtime_stories/ui/common/app_colors.dart';
 import 'package:bedtime_stories/ui/common/ui_helpers.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
